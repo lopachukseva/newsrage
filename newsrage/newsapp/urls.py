@@ -3,5 +3,8 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    path('<int:category_id>/', categories),
+    path('contacts/', contacts, name='contacts'),
+    path('feedback/', feedback, name='feedback'),
+    path('category/<int:category_id>/', category, name='category'),
+    path('<int:post_id>/', post, name='post'),
 ]

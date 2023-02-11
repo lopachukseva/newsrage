@@ -1,13 +1,55 @@
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render
+
+from newsapp.models import News, Category
+
+categories = Category.objects.all()
+
+footer_menu = [
+    {'title': 'Контакты', 'path_name': 'contacts'},
+    {'title': 'Обратная связь', 'path_name': 'feedback'},
+]
 
 
 def index(response):
-    return HttpResponse('Стартовая страница сайта')
+    posts = News.objects.all()
+
+    context = {
+        'title': 'NEWSRAGE',
+        'posts': posts,
+        'categories': categories,
+        'footer_menu': footer_menu,
+    }
+
+    return render(response, 'newsapp/index.html', context=context)
 
 
-def categories(response, category_id):
-    return HttpResponse(f'Категория новостей: {category_id}')
+def contacts(response):
+    return render(response, 'newsapp/contacts.html')
+
+
+def feedback(response):
+    return render(response, 'newsapp/feedback.html')
+
+
+def category(response, category_id):
+    posts = News.objects.filter(category=category_id)
+
+    if len(posts) == 0:
+        raise Http404()
+
+    context = {
+        'title': 'NEWSRAGE',
+        'posts': posts,
+        'categories': categories,
+        'footer_menu': footer_menu,
+    }
+
+    return render(response, 'newsapp/index.html', context=context)
+
+
+def post(response, post_id):
+    return HttpResponse(f'Пост: {post_id}')
 
 
 def pageNotFound(response, exception):
