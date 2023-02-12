@@ -12,7 +12,7 @@ footer_menu = [
 
 
 def index(response):
-    posts = News.objects.all()
+    posts = News.objects.filter(is_published=True)
 
     context = {
         'title': 'NEWSRAGE',
@@ -33,7 +33,7 @@ def feedback(response):
 
 
 def category(response, category_id):
-    posts = News.objects.filter(category=category_id)
+    posts = News.objects.filter(category=category_id).filter(is_published=True)
 
     if len(posts) == 0:
         raise Http404()
