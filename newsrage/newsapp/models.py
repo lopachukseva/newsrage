@@ -17,6 +17,12 @@ class News(models.Model):
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})
 
+    class Meta:
+        verbose_name = 'Новости'
+        verbose_name_plural = 'Новости'
+
+        ordering=['-time_create']
+
 
 class Category(models.Model):
     name = models.CharField(max_length=40, db_index=True)
@@ -26,3 +32,7 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('category', kwargs={'category_id': self.pk})
+
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категории'

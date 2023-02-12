@@ -3,13 +3,25 @@
 {% block content %}
 <div class="main-grid">
     {% for post in posts %}
-    <a href="{{ post.get_absolute_url }}">
-        <article class="main-article">
+
+    {% if forloop.first %}
+    <a class="main-article item-1" href="{{ post.get_absolute_url }}">
+        <article>
             <h2>{{ post.title }}</h2>
             <p>{{ post.content|truncatewords:10 }}</p>
             <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
         </article>
     </a>
+    {% else %}
+    <a class="main-article" href="{{ post.get_absolute_url }}">
+        <article>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content|truncatewords:10 }}</p>
+            <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
+        </article>
+    </a>
+    {% endif %}
+
     {% endfor %}
 </div>
 {% endblock %}
