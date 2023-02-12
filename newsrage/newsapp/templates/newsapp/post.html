@@ -1,0 +1,17 @@
+{% extends 'newsapp/base.html' %}
+
+{% block content %}
+
+<article class="post-article">
+
+    <p>{{ post.title }}</p>
+
+    {% if post.photo %}
+    <img src="{{ post.photo.url }}">
+    {% endif %}
+
+    <p>{{ post.content }}</p>
+
+</article>
+
+{% endblock %}

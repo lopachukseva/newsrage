@@ -43,6 +43,7 @@ a.text {
 .main {
     padding-top: 42px;
     flex-grow: 1;
+    display: flex;
 }
 
 .footer {
@@ -149,7 +150,10 @@ a.text {
     grid-template-columns: repeat(3, minmax(100px, 1fr));
     grid-template-rows: minmax(100px, 1fr);
     grid-column-gap: 5px;
-    grid-row-gap: 5px; 
+    grid-row-gap: 5px;
+    align-items: start;
+    height: min-content;
+    /* width: 100%; */
 }
 
 
@@ -235,4 +239,17 @@ a.text {
     flex-direction: row;
     align-self: center;
     gap: 30px;
+}
+
+
+/* ---- post page ----- */
+
+.post-article {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 5px;
+    flex-grow: 1;
 }

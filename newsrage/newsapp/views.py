@@ -49,7 +49,15 @@ def category(response, category_id):
 
 
 def post(response, post_id):
-    return HttpResponse(f'Пост: {post_id}')
+    post = News.objects.get(pk=post_id)
+
+    context = {
+        'title': 'NEWSRAGE',
+        'post': post,
+        'categories': categories,
+        'footer_menu': footer_menu,
+    }
+    return render(response, 'newsapp/post.html', context=context)
 
 
 def pageNotFound(response, exception):
