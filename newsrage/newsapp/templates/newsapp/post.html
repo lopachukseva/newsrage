@@ -4,14 +4,14 @@
 
 <article class="post-article">
 
-    <p>{{ post.title }}</p>
-
+    <h1>{{ post.title }}</h1>
+<div class="post-photo-text">
     {% if post.photo %}
     <img src="{{ post.photo.url }}">
     {% endif %}
 
     <p>{{ post.content }}</p>
-
+</div>
 </article>
 
 {% endblock %}

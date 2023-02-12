@@ -32,8 +32,10 @@ def feedback(response):
     return render(response, 'newsapp/feedback.html')
 
 
-def category(response, category_id):
-    posts = News.objects.filter(category=category_id).filter(is_published=True)
+def category(response, category_slug):
+    category = Category.objects.get(slug=category_slug)
+
+    posts = News.objects.filter(category=category.pk).filter(is_published=True)
 
     if len(posts) == 0:
         raise Http404()
@@ -48,8 +50,8 @@ def category(response, category_id):
     return render(response, 'newsapp/index.html', context=context)
 
 
-def post(response, post_id):
-    post = News.objects.get(pk=post_id)
+def post(response, post_slug):
+    post = News.objects.get(slug=post_slug)
 
     context = {
         'title': 'NEWSRAGE',
@@ -61,4 +63,4 @@ def post(response, post_id):
 
 
 def pageNotFound(response, exception):
-    return HttpResponseNotFound(f'<h3>Упс! Кажется, такой страницы не существует, или же она была удалена.</h3>')
+    return render(response, 'newsapp/notfound.html')

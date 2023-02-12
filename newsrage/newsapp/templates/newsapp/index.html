@@ -6,18 +6,28 @@
 
     {% if forloop.first %}
     <a class="main-article item-1" href="{{ post.get_absolute_url }}">
-        <article>
+        <article class="main-article-post">
             <h2>{{ post.title }}</h2>
-            <p>{{ post.content|truncatewords:10 }}</p>
-            <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
+            <div class="main-article-post-text-img">
+                {% if post.photo %}
+                <img src="{{ post.photo.url }}">
+                {% endif %}
+                <p>{{ post.content|truncatewords:100 }}</p>
+                <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
+            </div>
         </article>
     </a>
     {% else %}
     <a class="main-article" href="{{ post.get_absolute_url }}">
-        <article>
+        <article class="main-article-post">
             <h2>{{ post.title }}</h2>
-            <p>{{ post.content|truncatewords:10 }}</p>
-            <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
+            <div class="main-article-post-text-img">
+                {% if post.photo %}
+                <img src="{{ post.photo.url }}">
+                {% endif %}
+                <p>{{ post.content|truncatewords:25 }}</p>
+                <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
+            </div>
         </article>
     </a>
     {% endif %}

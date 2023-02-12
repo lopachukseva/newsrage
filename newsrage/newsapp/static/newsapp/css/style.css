@@ -181,6 +181,28 @@ a.text {
 
 
 
+.main-article-post {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-article-post-text-img{
+    margin: 20px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.main-article-post-text-img p{
+    margin-left: 10px;
+}
+
+.main-article-post-text-img img{
+    width: 30%;
+}
+
+
+
 @media screen and (max-width: 1200px) {
     .main-grid {
         grid-template-columns: repeat(2, minmax(100px, 1fr));
@@ -252,4 +274,47 @@ a.text {
     padding: 20px;
     margin: 5px;
     flex-grow: 1;
+    align-items: center;
+}
+
+
+.post-article h1 {
+    font-size: 1.4em;
+}
+
+.post-photo-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.post-photo-text p{
+    font-size: 1em;
+}
+
+
+.post-photo-text img{
+    width: 50%;
+    margin: 20px 0px;
+}
+
+
+
+
+
+
+
+/* ---- 404 page ----- */
+.not-found-flex{
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+}
+
+.not-found-flex div img{
+    width: 400px;
+    margin-bottom: 50px;
 }

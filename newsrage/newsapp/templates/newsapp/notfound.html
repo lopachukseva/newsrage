@@ -1,0 +1,10 @@
+{% extends 'newsapp/base.html' %}
+{% load static %}
+
+
+{% block content %}
+<div class="not-found-flex">
+    <div><img src="{% static 'newsapp/images/vertical_logo.png' %}" alt="newsrage-logo"></div>
+    <div><p>Упс! Кажется, такой страницы не существует, или же она была удалена.</p></div>
+</div>
+{% endblock %}
