@@ -4,7 +4,7 @@ from newsapp.models import *
 
 
 class NewsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'content', 'photo', 'time_create', 'is_published', 'category')
+    list_display = ('title', 'photo', 'time_create', 'is_published', 'category')
     search_fields = ['title']
     list_editable = ['is_published']
     list_filter = ['is_published']

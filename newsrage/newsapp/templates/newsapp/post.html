@@ -5,13 +5,13 @@
 <article class="post-article">
 
     <h1>{{ post.title }}</h1>
-<div class="post-photo-text">
-    {% if post.photo %}
-    <img src="{{ post.photo.url }}">
-    {% endif %}
+    <div class="post-photo-text">
+        {% if post.photo %}
+        <img src="{{ post.photo.url }}">
+        {% endif %}
 
-    <p>{{ post.content }}</p>
-</div>
+        <p>{{ post.content|linebreaks }}</p>
+    </div>
 </article>
 
 {% endblock %}
