@@ -49,22 +49,6 @@ a.text {
 }
 
 
-.up-button {
-    display: block;
-    position: fixed;
-    background-color: #212121;
-    width: 50px;
-    height: 50px;
-    z-index: 6;
-    right: 10px;
-    bottom: 50px;
-    border-radius: 15px;
-    font-size: 2.5em;
-    text-align: center;
-    color: rgba(255,255,255,0.7);
-    margin: auto;
-    /* box-shadow: 1px 1px 2px; */
-}
 
 
 @media screen and (max-width: 700px) {
@@ -333,4 +317,35 @@ a.text {
 .not-found-flex div img{
     width: 400px;
     margin-bottom: 50px;
+}
+
+
+/* ---- up scroll button ---- */
+
+.up-button {
+    display: block;
+    position: fixed;
+    box-sizing: border-box;
+    background-color: #212121;
+    width: 50px;
+    height: 50px;
+    z-index: 6;
+    right: 10px;
+    bottom: 50px;
+    border-radius: 15px;
+    font-size: 2.5em;
+    text-align: center;
+    color: rgba(255,255,255,0.7);
+    margin: auto;
+    opacity: 0;
+    /* box-shadow: 1px 1px 2px; */
+}
+
+
+.up-button:hover {
+    border: 1px solid rgba(255,255,255,0.7);
+}
+
+.up-button-hide {
+    opacity: 1;
 }
