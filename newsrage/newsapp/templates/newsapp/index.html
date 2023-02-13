@@ -3,35 +3,25 @@
 {% block content %}
 <div class="main-grid">
     {% for post in posts %}
-
     {% if forloop.first %}
     <a class="main-article item-1" href="{{ post.get_absolute_url }}">
-        <article class="main-article-post">
+        <article class="main-article-post first-post">
             <h2>{{ post.title }}</h2>
-            <div class="main-article-post-text-img">
-                {% if post.photo %}
-                <img src="{{ post.photo.url }}">
-                {% endif %}
-                <p>{{ post.content|truncatewords:100 }}</p>
-                <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
-            </div>
+            {% if post.photo %}
+            <img src="{{ post.photo.url }}">
+            {% endif %}
         </article>
     </a>
     {% else %}
     <a class="main-article" href="{{ post.get_absolute_url }}">
         <article class="main-article-post">
             <h2>{{ post.title }}</h2>
-            <div class="main-article-post-text-img">
-                {% if post.photo %}
-                <img src="{{ post.photo.url }}">
-                {% endif %}
-                <p>{{ post.content|truncatewords:25 }}</p>
-                <!--        <p>{{ post.content|linebreaks|truncatewords:10 }}</p>-->
-            </div>
+            {% if post.photo %}
+            <img src="{{ post.photo.url }}">
+            {% endif %}
         </article>
     </a>
     {% endif %}
-
     {% endfor %}
 </div>
 {% endblock %}
