@@ -323,7 +323,7 @@ a.text {
 /* ---- up scroll button ---- */
 
 .up-button {
-    display: block;
+    display: flex;
     position: fixed;
     box-sizing: border-box;
     background-color: #212121;
@@ -332,15 +332,16 @@ a.text {
     z-index: 6;
     right: 10px;
     bottom: 50px;
-    border-radius: 15px;
-    font-size: 2.5em;
+    border-radius: 50%;
+    font-size: 2em;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     color: rgba(255,255,255,0.7);
-    margin: auto;
+    padding-bottom: 7px;
     opacity: 0;
     /* box-shadow: 1px 1px 2px; */
 }
-
 
 .up-button:hover {
     border: 1px solid rgba(255,255,255,0.7);
