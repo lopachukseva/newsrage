@@ -23,9 +23,13 @@
                 <li><a class="header-logo" href="{% url 'index' %}"><img src="{% static 'newsapp/images/logo.png' %}"
                                                                          alt="newsrage-logo"></a></li>
                 {% for category in categories %}
-                <li><a class="header-navigation-textlink" href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+                <li><a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{{ category.get_absolute_url }}">{{ category.name }}</a>
                 </li>
                 {% endfor %}
+                <li><img class="header-navigation-textlink header-navigation-expand"
+                         src="{% static 'newsapp/images/arrow.png' %}">
+                </li>
             </ul>
         </nav>
     </header>
