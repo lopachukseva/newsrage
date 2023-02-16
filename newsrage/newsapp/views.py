@@ -24,12 +24,6 @@ def index(response):
     return render(response, 'newsapp/index.html', context=context)
 
 
-def contacts(response):
-    return render(response, 'newsapp/contacts.html')
-
-
-def feedback(response):
-    return render(response, 'newsapp/feedback.html')
 
 
 def category(response, category_slug):
@@ -60,6 +54,29 @@ def post(response, post_slug):
         'footer_menu': footer_menu,
     }
     return render(response, 'newsapp/post.html', context=context)
+
+
+
+def contacts(response):
+    context = {
+        'title': 'NEWSRAGE',
+        'post': post,
+        'categories': categories,
+        'footer_menu': footer_menu,
+    }
+    return render(response, 'newsapp/contacts.html', context=context)
+
+
+def feedback(response):
+    context = {
+        'title': 'NEWSRAGE',
+        'post': post,
+        'categories': categories,
+        'footer_menu': footer_menu,
+    }
+    return render(response, 'newsapp/feedback.html', context=context)
+
+
 
 
 def pageNotFound(response, exception):

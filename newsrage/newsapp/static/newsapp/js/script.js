@@ -1,5 +1,5 @@
-let upbutton = document.querySelector('.up-button');
-let showtime = 200
+const upbutton = document.querySelector('.up-button');
+const showtime = 200
 
 window.onscroll = () => {
     if (window.scrollY > showtime) {
@@ -16,9 +16,9 @@ upbutton.addEventListener('click', () => {
 })
 
 
-let headerNavExpand = document.querySelector('.header-navigation-expand');
-let headerNavListItems = document.querySelectorAll('.header-navigation-textlink');
-let headerNavList = document.querySelector('.header-navigation-list');
+const headerNavExpand = document.querySelector('.header-navigation-expand');
+const headerNavListItems = document.querySelectorAll('.header-navigation-textlink');
+const headerNavList = document.querySelector('.header-navigation-list');
 
 
 headerNavExpand.addEventListener('click', () => {
