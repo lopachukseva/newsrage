@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
 
 
 class News(models.Model):
@@ -41,7 +42,7 @@ class Category(models.Model):
 
 
 class Comments(models.Model):
-    user = models.CharField(max_length=50, verbose_name='Имя пользователя')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Пользователь')
     comment = models.TextField(blank=True, verbose_name='Текст комментария')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время написания')
     news = models.ForeignKey('News', on_delete=models.SET_NULL, null=True, verbose_name='Пост')
@@ -49,3 +50,14 @@ class Comments(models.Model):
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'
+
+
+class Feedback(models.Model):
+    name = models.CharField(max_length=50, verbose_name='Имя')
+    email = models.CharField(max_length=50, verbose_name='Электронная почта')
+    feedback_text = models.TextField(blank=True, verbose_name='Текст обратной связи')
+    time = models.DateTimeField(auto_now_add=True, verbose_name='Время отправки')
+
+    class Meta:
+        verbose_name = 'Обратная связь'
+        verbose_name_plural = 'Обратная связь'
