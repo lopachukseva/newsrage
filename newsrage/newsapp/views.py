@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth import login
 from django.shortcuts import redirect
 
-from newsapp.models import News, Category
+from newsapp.models import News, Category, Feedback, Comments
 
 categories = Category.objects.all()
 
@@ -27,8 +27,6 @@ def index(response):
     return render(response, 'newsapp/index.html', context=context)
 
 
-
-
 def category(response, category_slug):
     category = Category.objects.get(slug=category_slug)
 
@@ -49,15 +47,16 @@ def category(response, category_slug):
 
 def post(response, post_slug):
     post = News.objects.get(slug=post_slug)
+    post_comments = Comments.objects.filter(news_id=post.pk)
 
     context = {
         'title': 'NEWSRAGE',
         'post': post,
         'categories': categories,
         'footer_menu': footer_menu,
+        'post_comments': post_comments,
     }
     return render(response, 'newsapp/post.html', context=context)
-
 
 
 def contacts(response):
@@ -78,8 +77,6 @@ def feedback(response):
         'footer_menu': footer_menu,
     }
     return render(response, 'newsapp/feedback.html', context=context)
-
-
 
 
 def pageNotFound(response, exception):
