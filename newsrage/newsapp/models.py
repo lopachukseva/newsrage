@@ -22,7 +22,7 @@ class News(models.Model):
         verbose_name = 'Новости'
         verbose_name_plural = 'Новости'
 
-        ordering=['-time_create']
+        ordering = ['-time_create']
 
 
 class Category(models.Model):
@@ -38,3 +38,14 @@ class Category(models.Model):
     class Meta:
         verbose_name = 'Категория'
         verbose_name_plural = 'Категории'
+
+
+class Comments(models.Model):
+    user = models.CharField(max_length=50, verbose_name='Имя пользователя')
+    comment = models.TextField(blank=True, verbose_name='Текст комментария')
+    time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время написания')
+    news = models.ForeignKey('News', on_delete=models.SET_NULL, null=True, verbose_name='Пост')
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
