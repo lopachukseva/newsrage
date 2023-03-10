@@ -13,5 +13,17 @@
         <p>{{ post.content|linebreaks }}</p>
     </div>
 </article>
-
+{% if post_comments %}
+<div class="post-comments">
+    <h2>Комментарии</h2>
+    {% for comment in post_comments %}
+    <div class="comment-username">
+        {{ comment.user.username }} {{comment.time_create|date:"d:m:Y"}} в {{comment.time_create|date:"H:i"}} написал(а):
+    </div>
+    <div class="comment-text">
+        {{ comment.comment }}
+    </div>
+    {% endfor %}
+</div>
+{% endif %}
 {% endblock %}
