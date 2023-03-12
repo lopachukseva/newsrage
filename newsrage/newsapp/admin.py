@@ -16,5 +16,15 @@ class CategoryAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
 
 
+class FeedbackAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'time')
+
+
+class CommentsAdmin(admin.ModelAdmin):
+    list_display = ('user', 'comment', 'time_create', 'news')
+
+
 admin.site.register(News, NewsAdmin)
 admin.site.register(Category, CategoryAdmin)
+admin.site.register(Feedback, FeedbackAdmin)
+admin.site.register(Comments, CommentsAdmin)
