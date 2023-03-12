@@ -1,10 +1,14 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import redirect
-
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import FeedbackForm, RegisterUserForm, LoginUserForm
 from newsapp.models import News, Category, Feedback, Comments
+from .utils import DataMixin
 
 categories = Category.objects.all()
 
@@ -12,6 +16,8 @@ footer_menu = [
     {'title': 'Контакты', 'path_name': 'contacts'},
     {'title': 'Обратная связь', 'path_name': 'feedback'},
 ]
+
+
 
 
 def index(response):
@@ -69,15 +75,50 @@ def contacts(response):
     return render(response, 'newsapp/contacts.html', context=context)
 
 
-def feedback(response):
+def feedback(request):
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                return redirect('index')
+            except:
+                form.add_error(None, 'Ошибка отправки обратной связи')
+
+
+    form = FeedbackForm()
+
     context = {
         'title': 'NEWSRAGE',
         'post': post,
         'categories': categories,
         'footer_menu': footer_menu,
+        'form': form,
     }
-    return render(response, 'newsapp/feedback.html', context=context)
+    return render(request, 'newsapp/feedback.html', context=context)
+
+
+def logout_user(request):
+    logout(request)
+    return redirect('login')
 
 
 def pageNotFound(response, exception):
     return render(response, 'newsapp/notfound.html')
+
+
+
+
+
+# class Index(DataMixin, ListView):
+#     model = News
+#     template_name = 'newsapp/index.html'
+#     context_object_name = 'news'
+#
+#     def get_context_data(self, *, object_list=None, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         user_context = self.get_user_context()
+#         return dict(list(context.items()) + list(user_context.items()))
+#
+#     def get_queryset(self):
+#         return News.objects.filter(is_published=True)
