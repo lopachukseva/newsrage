@@ -386,3 +386,88 @@ a.text {
 .up-button-hide {
     opacity: 1;
 }
+
+/* ---- feedback form ---- */
+
+.feedback-form p {
+    align-self: center;
+}
+
+.feedback-form {
+    display: flex;
+    
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 1.2em;
+    /* color: rgba(255,255,255,0.7); */
+    color: #e0e6f0;
+    padding: 0px;
+    justify-content: center;
+    align-items: stretch;
+    margin-top: 150px;
+    /* width: 500px; */
+}
+
+
+.feedback-form .form-input {
+    line-height: 1.5;
+    font-size: 0.9em;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin-top: 10px;
+    resize: none;
+    padding: 5px;
+    padding-left: 10px;
+    /* width: 500px; */
+    /* min-width: 100px; */
+    border: 0;
+    box-shadow:0 0 15px 4px rgba(128, 128, 128, 0.06);
+    border-radius: 15px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
+}
+
+
+.feedback-form .form-button {
+    font-size: 0.9em;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin-top: 10px;
+    /* width: 500px; */
+    /* min-width: 100px; */
+    padding-left: 10px;
+    border: 0;
+    border-radius: 15px;
+    height: 30px;
+    background-color: #fe4d00;
+    color: #fff;
+}
+
+
+.feedback-form .form-input::placeholder {
+    color: #212529;
+    opacity: 0.4;
+}
+
+.feedback-form .form-input:focus {
+    color: #212529;;
+    background-color: #fff;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.742);
+  }
+
+
+.feedback-form .form-button:focus {
+    color: #212529;
+    /* background-color: #fff; */
+    background-color: #fe4c00de;
+    border-color: #bdbdbd;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(158, 158, 158, 0.742);
+  }
+
+
+  .feedback-form .form-button:hover {
+    background-color: #fe4c00ba;
+    border-color: #74361cbd;
+  }
