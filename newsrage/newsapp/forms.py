@@ -1,7 +1,6 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from django.core.exceptions import ValidationError
 from .models import Feedback
 
 
@@ -13,9 +12,9 @@ class FeedbackForm(forms.ModelForm):
         model = Feedback
         fields = ['name', 'email', 'feedback_text']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-input'}),
-            'email': forms.TextInput(attrs={'class': 'form-input'}),
-            'feedback_text': forms.Textarea(attrs={'cols': 60, 'rows': 10}),
+            'name': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя'}),
+            'email': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Электронная почта'}),
+            'feedback_text': forms.Textarea(attrs={'class': 'form-input', 'placeholder': 'Напишите здесь, что думаете о нас'}),
         }
 
 
