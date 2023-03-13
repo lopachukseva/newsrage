@@ -1,3 +1,4 @@
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render
 from django.contrib.auth.models import User
@@ -16,8 +17,6 @@ footer_menu = [
     {'title': 'Контакты', 'path_name': 'contacts'},
     {'title': 'Обратная связь', 'path_name': 'feedback'},
 ]
-
-
 
 
 def index(response):
@@ -85,7 +84,6 @@ def feedback(request):
             except:
                 form.add_error(None, 'Ошибка отправки обратной связи')
 
-
     form = FeedbackForm()
 
     context = {
@@ -98,17 +96,38 @@ def feedback(request):
     return render(request, 'newsapp/feedback.html', context=context)
 
 
+class LoginUser(DataMixin, LoginView):
+    form_class = LoginUserForm
+    template_name = 'newsapp/login.html'
+    success_url = reverse_lazy('index')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_context = self.get_user_context()
+        return dict(list(context.items()) + list(user_context.items()))
+
+    def get_success_url(self):
+        return reverse_lazy('index')
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'newsapp/register.html'
+    success_url = reverse_lazy('login_user')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user_context = self.get_user_context()
+        return dict(list(context.items()) + list(user_context.items()))
+
+
 def logout_user(request):
     logout(request)
-    return redirect('login')
+    return redirect('index')
 
 
 def pageNotFound(response, exception):
     return render(response, 'newsapp/notfound.html')
-
-
-
-
 
 # class Index(DataMixin, ListView):
 #     model = News
