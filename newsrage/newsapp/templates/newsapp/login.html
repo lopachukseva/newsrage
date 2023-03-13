@@ -1,0 +1,20 @@
+{% extends 'newsapp/base.html' %}
+
+{% block content %}
+
+<article class="post-article">
+
+    <form class="login-form" action="{% url 'login_user' %}" method="post">
+        <p>Вход</p>
+        {% csrf_token %}
+        {% for f in form %}
+        {{ f }}
+        <div class="form-error">{{ f.errors }}</div>
+        {% endfor %}
+        <button class="form-button" type="submit">Войти</button>
+        <div class="form-error">{{ form.non_field_errors }}</div>
+    </form>
+
+</article>
+
+{% endblock %}
