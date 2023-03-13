@@ -27,6 +27,16 @@
                        href="{{ category.get_absolute_url }}">{{ category.name }}</a>
                 </li>
                 {% endfor %}
+                {% if request.user.is_authenticated %}
+                <li><a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{% url 'logout_user' %}">Выйти</a>
+                </li>
+                {% else %}
+                <li class="header-navigation-textlink-hide"><a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{% url 'login_user' %}">Войти</a> | <a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{% url 'register_user' %}">Регистрация</a>
+                </li>
+                {% endif %}
                 <li><img class="header-navigation-textlink header-navigation-expand"
                          src="{% static 'newsapp/images/arrow.png' %}">
                 </li>
