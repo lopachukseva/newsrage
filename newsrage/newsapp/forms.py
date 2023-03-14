@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Feedback
+from .models import Feedback, Comments
 
 
 class FeedbackForm(forms.ModelForm):
@@ -15,6 +15,18 @@ class FeedbackForm(forms.ModelForm):
             'name': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Имя'}),
             'email': forms.TextInput(attrs={'class': 'form-input', 'placeholder': 'Электронная почта'}),
             'feedback_text': forms.Textarea(attrs={'class': 'form-input', 'placeholder': 'Напишите здесь, что думаете о нас'}),
+        }
+
+
+class CommentsForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+    class Meta:
+        model = Comments
+        fields = ['comment', ]
+        widgets = {
+            'comment': forms.Textarea(attrs={'class': 'form-input', 'placeholder': 'Напишите комментарий'}),
         }
 
 
