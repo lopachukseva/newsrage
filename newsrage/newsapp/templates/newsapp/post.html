@@ -13,9 +13,10 @@
         <p>{{ post.content|linebreaks }}</p>
     </div>
 </article>
-{% if post_comments %}
+
 <div class="post-comments">
     <h2>Комментарии</h2>
+    {% if post_comments %}
     {% for comment in post_comments %}
     <div class="comment-username">
         {{ comment.user.username }} {{comment.time_create|date:"d:m:Y"}} в {{comment.time_create|date:"H:i"}}
@@ -24,8 +25,14 @@
     <div class="comment-text">
         {{ comment.comment }}
     </div>
-
     {% endfor %}
+    {% else %}
+    <div class="comment-text">
+        Еще никто не оставил комментарий под этой новостью. Вы будете первым!
+    </div>
+    {% endif %}
+
+
 
     <div class="comment-add">
         <form class="comments-form" action="." method="post">
@@ -38,5 +45,5 @@
         </form>
     </div>
 </div>
-{% endif %}
+
 {% endblock %}
