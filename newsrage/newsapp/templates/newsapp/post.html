@@ -18,12 +18,25 @@
     <h2>Комментарии</h2>
     {% for comment in post_comments %}
     <div class="comment-username">
-        {{ comment.user.username }} {{comment.time_create|date:"d:m:Y"}} в {{comment.time_create|date:"H:i"}} написал(а):
+        {{ comment.user.username }} {{comment.time_create|date:"d:m:Y"}} в {{comment.time_create|date:"H:i"}}
+        написал(а):
     </div>
     <div class="comment-text">
         {{ comment.comment }}
     </div>
+
     {% endfor %}
+
+    <div class="comment-add">
+        <form class="comments-form" action="." method="post">
+            {% csrf_token %}
+            {% for f in form %}
+            {{ f }}
+            <div class="form-error">{{ f.errors }}</div>
+            {% endfor %}
+            <button class="form-button" type="submit">Отправить</button>
+        </form>
+    </div>
 </div>
 {% endif %}
 {% endblock %}
