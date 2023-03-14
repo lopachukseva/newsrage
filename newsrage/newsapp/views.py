@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from .forms import FeedbackForm, RegisterUserForm, LoginUserForm
+from .forms import FeedbackForm, RegisterUserForm, LoginUserForm, CommentsForm
 from newsapp.models import News, Category, Feedback, Comments
 from .utils import DataMixin
 
@@ -32,7 +32,7 @@ def index(response):
     return render(response, 'newsapp/index.html', context=context)
 
 
-def category(response, category_slug):
+def category(request, category_slug):
     category = Category.objects.get(slug=category_slug)
 
     posts = News.objects.filter(category=category.pk).filter(is_published=True)
@@ -47,12 +47,28 @@ def category(response, category_slug):
         'footer_menu': footer_menu,
     }
 
-    return render(response, 'newsapp/index.html', context=context)
+    return render(request, 'newsapp/index.html', context=context)
 
 
-def post(response, post_slug):
+def post(request, post_slug):
+
     post = News.objects.get(slug=post_slug)
     post_comments = Comments.objects.filter(news_id=post.pk)
+    this_url = f'post/{post.slug}/'
+
+    if request.method == 'POST':
+        form = CommentsForm(request.POST)
+        if form.is_valid():
+            # request.POST['post'] = 'value'
+            print(request.POST)
+            newComment = form.save(commit=False)
+            newComment.news = post
+            newComment.user = request.user
+            newComment.save()
+            return redirect(request.META.get('HTTP_REFERER'))
+
+    else:
+        form = CommentsForm()
 
     context = {
         'title': 'NEWSRAGE',
@@ -60,18 +76,20 @@ def post(response, post_slug):
         'categories': categories,
         'footer_menu': footer_menu,
         'post_comments': post_comments,
+        'form': form,
+        'this_url': this_url,
     }
-    return render(response, 'newsapp/post.html', context=context)
+    return render(request, 'newsapp/post.html', context=context)
 
 
-def contacts(response):
+def contacts(request):
     context = {
         'title': 'NEWSRAGE',
         'post': post,
         'categories': categories,
         'footer_menu': footer_menu,
     }
-    return render(response, 'newsapp/contacts.html', context=context)
+    return render(request, 'newsapp/contacts.html', context=context)
 
 
 def feedback(request):
