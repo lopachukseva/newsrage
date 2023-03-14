@@ -32,9 +32,11 @@
                        href="{% url 'logout_user' %}">Выйти</a>
                 </li>
                 {% else %}
-                <li class="header-navigation-textlink-hide"><a class="header-navigation-textlink header-navigation-textlink-hide"
-                       href="{% url 'login_user' %}">Войти</a> | <a class="header-navigation-textlink header-navigation-textlink-hide"
-                       href="{% url 'register_user' %}">Регистрация</a>
+                <li><a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{% url 'login_user' %}">Войти</a>
+                </li>
+                <li><a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{% url 'register_user' %}"> Регистрация</a>
                 </li>
                 {% endif %}
                 <li><img class="header-navigation-textlink header-navigation-expand"
