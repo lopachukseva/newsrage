@@ -123,9 +123,9 @@ a.text {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        gap: 20px;
         font-size: 1.2em;
         margin: 20px 0px;
+        gap: 0px;
     }
 
     .header-navigation li a img {
@@ -135,10 +135,6 @@ a.text {
 
     .header-navigation-textlink {
         margin-left: 0px;
-    }
-
-    .header-navigation-list {
-        gap: 0px;
     }
 
     .header-navigation-textlink-hide {
