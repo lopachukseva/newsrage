@@ -19,7 +19,7 @@ footer_menu = [
 ]
 
 
-def index(response):
+def index(request):
     posts = News.objects.filter(is_published=True)
 
     context = {
@@ -29,7 +29,7 @@ def index(response):
         'footer_menu': footer_menu,
     }
 
-    return render(response, 'newsapp/index.html', context=context)
+    return render(request, 'newsapp/index.html', context=context)
 
 
 def category(request, category_slug):
@@ -51,7 +51,6 @@ def category(request, category_slug):
 
 
 def post(request, post_slug):
-
     post = News.objects.get(slug=post_slug)
     post_comments = Comments.objects.filter(news_id=post.pk)
     this_url = f'post/{post.slug}/'
@@ -59,12 +58,11 @@ def post(request, post_slug):
     if request.method == 'POST':
         form = CommentsForm(request.POST)
         if form.is_valid():
-            # request.POST['post'] = 'value'
             print(request.POST)
-            newComment = form.save(commit=False)
-            newComment.news = post
-            newComment.user = request.user
-            newComment.save()
+            new_comment = form.save(commit=False)
+            new_comment.news = post
+            new_comment.user = request.user
+            new_comment.save()
             return redirect(request.META.get('HTTP_REFERER'))
 
     else:
@@ -79,6 +77,9 @@ def post(request, post_slug):
         'form': form,
         'this_url': this_url,
     }
+
+    print(request)
+
     return render(request, 'newsapp/post.html', context=context)
 
 
