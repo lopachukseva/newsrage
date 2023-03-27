@@ -9,8 +9,10 @@
         {% if post.photo %}
         <img src="{{ post.photo.url }}">
         {% endif %}
-
-        <p>{{ post.content|linebreaks }}</p>
+        {% autoescape off %}
+<!--        <p>{{ post.content|linebreaks }}</p>-->
+        <p>{{ post.content }}</p>
+        {% endautoescape %}
     </div>
 </article>
 
