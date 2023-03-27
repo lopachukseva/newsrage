@@ -6,7 +6,7 @@ from django.contrib.auth.models import User
 class News(models.Model):
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(blank=True, verbose_name='Текст')
-    photo = models.ImageField(upload_to="photos/", verbose_name='Фотография')
+    photo = models.ImageField(upload_to="photos/", verbose_name='Главная фотография')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время последнего обновления')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
@@ -61,3 +61,15 @@ class Feedback(models.Model):
     class Meta:
         verbose_name = 'Обратная связь'
         verbose_name_plural = 'Обратная связь'
+
+
+class Image(models.Model):
+    title = models.CharField(max_length=255, verbose_name='Заголовок')
+    photo = models.ImageField(upload_to="photos/", verbose_name='Фотография')
+
+    class Meta:
+        verbose_name = 'Изображение'
+        verbose_name_plural = 'Изображения'
+
+    def __str__(self):
+        return self.title
