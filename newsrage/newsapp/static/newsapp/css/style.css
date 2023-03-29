@@ -36,6 +36,7 @@ a.text {
     top: 0;
     left: 0;
     right: 0;
+    user-select: none;
 }
 
 .main {
@@ -49,6 +50,7 @@ a.text {
 .footer {
     background-color: #212121;
     min-height: 40px;
+    user-select: none;
 }
 
 @media screen and (max-width: 700px) {
@@ -405,6 +407,7 @@ a.text {
     color: rgba(255, 255, 255, 0.7);
     padding-bottom: 7px;
     opacity: 0;
+    user-select: none;
 }
 
 .up-button:hover {
