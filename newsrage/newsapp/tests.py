@@ -1,5 +1,6 @@
 from django.test import TestCase
-from .models import News
+from .models import News, Comments
+from django.contrib.auth.models import User
 
 
 class NewsModelTest(TestCase):
@@ -50,4 +51,60 @@ class NewsModelTest(TestCase):
         self.assertEqual(
             all_posts[1].slug,
             post2.slug
+        )
+
+
+class CommentsModelTest(TestCase):
+    def test_comments_model_save_and_retrieve(self):
+        test_user = User.objects.create_user('myname')
+        test_news = News.objects.create(title='post', content='post_content', slug='post_slug')
+
+        comment1 = Comments(
+            user=test_user,
+            comment='comment1',
+            news=test_news,
+        )
+        comment1.save()
+
+        comment2 = Comments(
+            user=test_user,
+            comment='comment2',
+            news=test_news,
+        )
+        comment2.save()
+
+        all_comments = Comments.objects.all()
+
+        self.assertEqual(
+            len(all_comments), 2
+        )
+
+        self.assertEqual(
+            all_comments[0].user,
+            comment1.user
+        )
+
+        self.assertEqual(
+            all_comments[0].comment,
+            comment1.comment
+        )
+
+        self.assertEqual(
+            all_comments[0].news,
+            comment1.news
+        )
+
+        self.assertEqual(
+            all_comments[1].user,
+            comment2.user
+        )
+
+        self.assertEqual(
+            all_comments[1].comment,
+            comment2.comment
+        )
+
+        self.assertEqual(
+            all_comments[1].news,
+            comment2.news
         )
