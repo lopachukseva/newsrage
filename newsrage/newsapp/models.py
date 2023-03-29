@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 
 
 class News(models.Model):
+    objects = None
     title = models.CharField(max_length=255, verbose_name='Заголовок')
     content = models.TextField(blank=True, verbose_name='Текст')
     photo = models.ImageField(upload_to="photos/", verbose_name='Главная фотография')
