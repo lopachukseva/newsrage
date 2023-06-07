@@ -2,15 +2,39 @@
 
 <h1> Новостной сайт компании NewsRage </h1>
 
+<p> Задача проекта - создание новостного сайта для компании NewsRage с целью распространения информации в удобном и современном формате </p>
+
+<h2> Возможности: </h2>
+<ul>
+  <li>Чтение и добавление новостей на сайт</li>
+  <li>Загрузка картинок</li>
+  <li>Фильтрация новостей на основе категорий</li>
+  <li>Регистрация и аутентификация пользователей</li>
+  <li>Чтение и добавление комментариев под новостями</li>
+  <li>Администирование сайта с помощью встроенной админ панели Django</li>
+</ul>
+
+<p> В процессе реализации проекта была также создана айдентика для бренда NewsRage и уникальный дизайн сайта </p>
+
 <h2> Краткий обзор </h2>
 
-<img width="1792" alt="Screenshot 2023-06-07 at 19 11 53" src="https://github.com/lopachukseva/newsrage/assets/75507062/45ebdafb-8e27-4ef3-8a8e-4487ad9331ec">
-<img width="1792" alt="Screenshot 2023-06-07 at 19 12 13" src="https://github.com/lopachukseva/newsrage/assets/75507062/2867e8d3-30d2-4a00-9757-c8e2f5136d7f">
-<img width="1792" alt="Screenshot 2023-06-07 at 19 12 23" src="https://github.com/lopachukseva/newsrage/assets/75507062/100694bf-d9d9-47bd-ac2d-8754ddde90d3">
-<img width="1792" alt="Screenshot 2023-06-07 at 19 19 08" src="https://github.com/lopachukseva/newsrage/assets/75507062/a3847b17-9abc-4acc-8764-8d9643cb01d3">
-<img width="1792" alt="Screenshot 2023-06-07 at 19 19 21" src="https://github.com/lopachukseva/newsrage/assets/75507062/c3598ae3-68ac-41c1-991d-344cc35a8df8">
-<img width="1792" alt="Screenshot 2023-06-07 at 19 19 29" src="https://github.com/lopachukseva/newsrage/assets/75507062/702f9c7a-8e9e-4e42-8abe-c107d93854ac">
-<img width="1792" alt="Screenshot 2023-06-07 at 19 19 37" src="https://github.com/lopachukseva/newsrage/assets/75507062/96f338e7-07c3-4502-9f43-036018608bb6">
+<p> Главная страница: </p>
+<img width="1792" alt="Screenshot 2023-06-07 at 19 11 53" src="https://github.com/lopachukseva/newsrage/assets/75507062/2c4fa24d-25d4-4a5f-b7d2-ebd23b759718">
+
+
+<p> Cтраница новости с комментариями: </p>
+<img width="1792" alt="Screenshot 2023-06-07 at 19 12 13" src="https://github.com/lopachukseva/newsrage/assets/75507062/83933a5c-d272-4074-8d94-2dc47e5bf760">
+<img width="1792" alt="Screenshot 2023-06-07 at 19 12 23" src="https://github.com/lopachukseva/newsrage/assets/75507062/1cb393fe-f4b4-4b71-9fd5-40d0b4cc5fd9">
+<img width="1792" alt="Screenshot 2023-06-07 at 19 19 08" src="https://github.com/lopachukseva/newsrage/assets/75507062/c0adb63c-d783-46c6-a122-ce7c505f0a0e">
+
+
+<p> Формы для регистрации и аутентификации: </p>
+<img width="1792" alt="Screenshot 2023-06-07 at 19 19 29" src="https://github.com/lopachukseva/newsrage/assets/75507062/f05b23d8-0786-4a3a-b927-968a30f19142">
+<img width="1792" alt="Screenshot 2023-06-07 at 19 19 37" src="https://github.com/lopachukseva/newsrage/assets/75507062/81db85a5-546b-449f-9754-8fdbdd96b342">
+
+
+<p> Форма обратной связи: </p>
+<img width="1792" alt="Screenshot 2023-06-07 at 19 19 21" src="https://github.com/lopachukseva/newsrage/assets/75507062/51ba9d61-7bcf-4a05-95e3-a63c33b9cfb9">
 
 
 <p> Также функционал сайта полностью адаптирован под мобильные устройства: </p>
