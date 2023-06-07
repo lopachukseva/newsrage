@@ -46,6 +46,17 @@
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 51" src="https://github.com/lopachukseva/newsrage/assets/75507062/cfeeb29f-9ecb-49b3-8bc2-57a2559a62b2">
 
 
+<h2> Стек технологий: </h2>
+<ul>
+  <li>Python 3.8</li>
+  <li>Django 4.1.6</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
+  <li>SQLite</li>
+</ul>
+
+
 <h2> Для запуска: </h2>
 <ol>
   <li>Установка зависимостей: pip install -r requirements.txt </li>
