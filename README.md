@@ -39,11 +39,20 @@
 
 
 <p> Также функционал сайта полностью адаптирован под мобильные устройства: </p>
-
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 25" src="https://github.com/lopachukseva/newsrage/assets/75507062/dc970e9d-c7db-44eb-8fb0-004c7c6b869a">
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 32" src="https://github.com/lopachukseva/newsrage/assets/75507062/25514503-cd5d-4d2e-8720-def968e1025f">
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 38" src="https://github.com/lopachukseva/newsrage/assets/75507062/1f88205e-d9b0-46b0-875c-8f0a6af373de">
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 45" src="https://github.com/lopachukseva/newsrage/assets/75507062/78493fe9-5aa0-422b-b615-f0a317ddb601">
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 51" src="https://github.com/lopachukseva/newsrage/assets/75507062/cfeeb29f-9ecb-49b3-8bc2-57a2559a62b2">
+
+
+<h2> Для запуска: </h2>
+<ol>
+  <li>Установка зависимостей: pip install -r requirements.txt </li>
+  <li>Запуск тестового веб сервера: python manage.py runserver </li>
+</ol>
+
+<p>Для демонстрации возможностей в репозитории находится файл встраиваемой базы данных SQLite</p>
+<p>Логин администратора сайта: root, пароль: 1234</p>
 
 
