@@ -379,6 +379,7 @@ a.text {
     justify-content: center;
     align-items: center;
     font-size: 1.8em;
+    color: #e0e6f0;
 }
 
 .not-found-flex div img {

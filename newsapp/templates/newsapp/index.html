@@ -1,6 +1,7 @@
 {% extends 'newsapp/base.html' %}
 
 {% block content %}
+{% if posts %}
 <div class="main-grid">
     {% for post in posts %}
     {% if forloop.first %}
@@ -23,5 +24,12 @@
     </a>
     {% endif %}
     {% endfor %}
+
 </div>
+
+{% else %}
+<div class="not-found-flex">
+    <div><p>Упс! Здесь еще никто ничего не писал :(</p></div>
+</div>
+{% endif %}
 {% endblock %}

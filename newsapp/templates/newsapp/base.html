@@ -39,6 +39,10 @@
                        href="{% url 'register_user' %}"> Регистрация</a>
                 </li>
                 {% endif %}
+                {% if request.user.is_superuser %}
+                <li><a class="header-navigation-textlink header-navigation-textlink-hide"
+                       href="{% url 'admin:index' %}">Админ-панель</a>
+                {% endif %}
                 <li><img class="header-navigation-textlink header-navigation-expand"
                          src="{% static 'newsapp/images/arrow.png' %}">
                 </li>
