@@ -5,16 +5,17 @@ from django.contrib.auth import logout
 from django.shortcuts import redirect
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
-from .forms import FeedbackForm, RegisterUserForm, LoginUserForm, CommentsForm
+
+from common.mixins import TitleMixin
+from newsapp.forms import FeedbackForm, RegisterUserForm, LoginUserForm, CommentsForm
 from newsapp.models import News, Category, Comments
-from .utils import DataMixin
 
 
 def index(request):
     posts = News.objects.filter(is_published=True)
 
     context = {
-        'title': 'NEWSRAGE',
+        'title': 'NEWSRAGE - Главная',
         'posts': posts,
     }
 
@@ -29,7 +30,7 @@ def category(request, category_slug):
         raise Http404()
 
     context = {
-        'title': 'NEWSRAGE',
+        'title': f'NEWSRAGE - {page_category.name}',
         'posts': posts,
     }
 
@@ -52,7 +53,7 @@ def post(request, post_slug):
         form = CommentsForm()
 
     context = {
-        'title': 'NEWSRAGE',
+        'title': f'NEWSRAGE - {post.title}',
         'post': post,
         'post_comments': post_comments,
         'form': form,
@@ -83,36 +84,36 @@ def feedback(request):
     form = FeedbackForm()
 
     context = {
-        'title': 'NEWSRAGE',
+        'title': 'NEWSRAGE - Обратная связь',
         'post': post,
         'form': form,
     }
     return render(request, 'newsapp/feedback.html', context=context)
 
 
-class LoginUser(DataMixin, LoginView):
+class LoginUser(TitleMixin, LoginView):
     form_class = LoginUserForm
     template_name = 'newsapp/login.html'
     success_url = reverse_lazy('index')
+    title = "NEWSRAGE - Вход"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_context = self.get_user_context()
-        return dict(list(context.items()) + list(user_context.items()))
+        return context
 
     def get_success_url(self):
         return reverse_lazy('index')
 
 
-class RegisterUser(DataMixin, CreateView):
+class RegisterUser(TitleMixin, CreateView):
     form_class = RegisterUserForm
     template_name = 'newsapp/register.html'
     success_url = reverse_lazy('login_user')
+    title = "NEWSRAGE - Регистрация"
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        user_context = self.get_user_context()
-        return dict(list(context.items()) + list(user_context.items()))
+        return context
 
 
 def logout_user(request):
