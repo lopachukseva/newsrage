@@ -505,8 +505,9 @@ a.text {
 }
 
 .login-form {
+    min-width: 260px;
+    max-width: 80%;
     display: flex;
-
     flex-direction: column;
     box-sizing: border-box;
     font-size: 1.2em;
@@ -576,6 +577,7 @@ a.text {
 
 .form-error .errorlist li {
     margin-top: 10px;
+    max-width: 300px;
 }
 
 
