@@ -35,7 +35,7 @@
     {% endif %}
 
 
-
+    {% if user.is_authenticated %}
     <div class="comment-add">
         <form class="comments-form" action="." method="post">
             {% csrf_token %}
@@ -46,6 +46,7 @@
             <button class="form-button" type="submit">Отправить</button>
         </form>
     </div>
+    {% endif %}
 </div>
 
 {% endblock %}

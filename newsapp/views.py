@@ -9,11 +9,6 @@ from .forms import FeedbackForm, RegisterUserForm, LoginUserForm, CommentsForm
 from newsapp.models import News, Category, Comments
 from .utils import DataMixin
 
-footer_menu = [
-    {'title': 'Контакты', 'path_name': 'contacts'},
-    {'title': 'Обратная связь', 'path_name': 'feedback'},
-]
-
 
 def index(request):
     posts = News.objects.filter(is_published=True)
@@ -21,8 +16,6 @@ def index(request):
     context = {
         'title': 'NEWSRAGE',
         'posts': posts,
-        'categories': Category.objects.all(),
-        'footer_menu': footer_menu,
     }
 
     return render(request, 'newsapp/index.html', context=context)
@@ -30,7 +23,6 @@ def index(request):
 
 def category(request, category_slug):
     page_category = Category.objects.get(slug=category_slug)
-
     posts = News.objects.filter(category=page_category.pk).filter(is_published=True)
 
     if len(posts) == 0:
@@ -39,8 +31,6 @@ def category(request, category_slug):
     context = {
         'title': 'NEWSRAGE',
         'posts': posts,
-        'categories': Category.objects.all(),
-        'footer_menu': footer_menu,
     }
 
     return render(request, 'newsapp/index.html', context=context)
@@ -49,32 +39,24 @@ def category(request, category_slug):
 def post(request, post_slug):
     post = News.objects.get(slug=post_slug)
     post_comments = Comments.objects.filter(news_id=post.pk)
-    this_url = f'post/{post.slug}/'
 
     if request.method == 'POST':
         form = CommentsForm(request.POST)
         if form.is_valid():
-            print(request.POST)
             new_comment = form.save(commit=False)
             new_comment.news = post
             new_comment.user = request.user
             new_comment.save()
             return redirect(request.META.get('HTTP_REFERER'))
-
     else:
         form = CommentsForm()
 
     context = {
         'title': 'NEWSRAGE',
         'post': post,
-        'categories': Category.objects.all(),
-        'footer_menu': footer_menu,
         'post_comments': post_comments,
         'form': form,
-        'this_url': this_url,
     }
-
-    print(request)
 
     return render(request, 'newsapp/post.html', context=context)
 
@@ -83,9 +65,8 @@ def contacts(request):
     context = {
         'title': 'NEWSRAGE',
         'post': post,
-        'categories': Category.objects.all(),
-        'footer_menu': footer_menu,
     }
+
     return render(request, 'newsapp/contacts.html', context=context)
 
 
@@ -104,8 +85,6 @@ def feedback(request):
     context = {
         'title': 'NEWSRAGE',
         'post': post,
-        'categories': Category.objects.all(),
-        'footer_menu': footer_menu,
         'form': form,
     }
     return render(request, 'newsapp/feedback.html', context=context)
