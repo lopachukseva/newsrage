@@ -406,7 +406,7 @@ a.text {
     align-items: center;
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
-    padding-bottom: 7px;
+    padding-bottom: 0px;
     opacity: 0;
     user-select: none;
 }
