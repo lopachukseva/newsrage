@@ -46,10 +46,11 @@
 <img width="612" alt="Screenshot 2023-06-07 at 19 20 51" src="https://github.com/lopachukseva/newsrage/assets/75507062/cfeeb29f-9ecb-49b3-8bc2-57a2559a62b2">
 
 
-<h2> Стек технологий: </h2>
+<h2> При создании использованы: </h2>
 <ul>
   <li>Python 3.8</li>
-  <li>Django 4.1.6</li>
+    <li>Django 4.2.3</li>
+<li>DRF 3.14.0</li>
   <li>HTML</li>
   <li>CSS</li>
   <li>JavaScript</li>
@@ -60,10 +61,11 @@
 <h2> Для запуска: </h2>
 <ol>
   <li>Установка зависимостей: pip install -r requirements.txt </li>
+  <li>Создание миграций: python manage.py makemigrations </li>
+  <li>Применение миграций: python manage.py migrate </li>
+  <li>Создание суперпользователя: python manage.py createsuperuser </li>
   <li>Запуск тестового веб сервера: python manage.py runserver </li>
 </ol>
 
-<p>Для демонстрации возможностей в репозитории находится файл встраиваемой базы данных SQLite</p>
-<p>Логин администратора сайта: root, пароль: 1234</p>
 
 
