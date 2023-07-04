@@ -1,6 +1,7 @@
 from rest_framework.generics import ListAPIView, RetrieveAPIView
-from newsapp.models import News, Category
-from newsapp.serializers import NewsSerializer, CategorySerializer
+
+from newsapp.models import Category, News
+from newsapp.serializers import CategorySerializer, NewsSerializer
 
 
 class NewsListAPIView(ListAPIView):

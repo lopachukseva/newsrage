@@ -1,14 +1,14 @@
+from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
 from django.http import Http404
-from django.shortcuts import render
-from django.contrib.auth import logout
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 
 from common.mixins import TitleMixin
-from newsapp.forms import FeedbackForm, RegisterUserForm, LoginUserForm, CommentsForm
-from newsapp.models import News, Category, Comments
+from newsapp.forms import (CommentsForm, FeedbackForm, LoginUserForm,
+                           RegisterUserForm)
+from newsapp.models import Category, Comments, News
 
 
 def index(request):

@@ -1,6 +1,7 @@
-from django.test import TestCase
-from .models import News, Comments
 from django.contrib.auth.models import User
+from django.test import TestCase
+
+from .models import Comments, News
 
 
 class NewsModelTest(TestCase):
