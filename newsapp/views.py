@@ -39,7 +39,7 @@ def category(request, category_slug):
 
 def post(request, post_slug):
     post = News.objects.get(slug=post_slug)
-    post_comments = Comments.objects.filter(news_id=post.pk)
+    post_comments = Comments.objects.filter(news_id=post.pk).select_related("user")
 
     if request.method == 'POST':
         form = CommentsForm(request.POST)
