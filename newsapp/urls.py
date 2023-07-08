@@ -2,7 +2,7 @@ from django.urls import path
 
 from newsapp.views import (LoginUser, RegisterUser, category, contacts,
                            feedback, index, logout_user, post)
-from newsapp.views_api import (CategoryListAPIView, NewsCategoryAPIView,
+from newsapp.api.views import (CategoryListAPIView, NewsCategoryAPIView,
                                NewsListAPIView, NewsRetrieveAPIView)
 
 urlpatterns = [
