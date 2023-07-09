@@ -42,11 +42,18 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
 
+class CommentsQuerySet(models.QuerySet):
+    def total_count(self):
+        return len(self)
+
+
 class Comments(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, verbose_name='Пользователь')
     comment = models.TextField(blank=True, verbose_name='Текст комментария')
     time_create = models.DateTimeField(auto_now_add=True, verbose_name='Время написания')
     news = models.ForeignKey('News', on_delete=models.SET_NULL, null=True, verbose_name='Пост')
+
+    objects = CommentsQuerySet.as_manager()
 
     class Meta:
         verbose_name = 'Комментарий'
