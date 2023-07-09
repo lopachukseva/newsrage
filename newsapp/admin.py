@@ -5,11 +5,14 @@ from newsapp.models import *
 
 class NewsAdmin(admin.ModelAdmin):
     list_display = ('title', 'photo', 'time_create', 'is_published', 'category')
+    fields = ('title', 'content', 'photo', ('time_create', 'time_update'), 'is_published', 'category', ('slug', 'id'))
+    readonly_fields = ('time_create', 'time_update', 'id')
     search_fields = ['title']
     list_editable = ['is_published']
     list_filter = ['is_published']
     empty_value_display = '-empty-'
     prepopulated_fields = {'slug': ('title',)}
+
 
 
 class CategoryAdmin(admin.ModelAdmin):
