@@ -27,7 +27,7 @@
                        href="{{ category.get_absolute_url }}">{{ category.name }}</a>
                 </li>
                 {% endfor %}
-                {% if request.user.is_authenticated %}
+                {% if user.is_authenticated %}
                 <li><a class="header-navigation-textlink header-navigation-textlink-hide"
                        href="{% url 'logout_user' %}">Выйти</a>
                 </li>
@@ -39,7 +39,7 @@
                        href="{% url 'register_user' %}"> Регистрация</a>
                 </li>
                 {% endif %}
-                {% if request.user.is_superuser %}
+                {% if user.is_superuser %}
                 <li><a class="header-navigation-textlink header-navigation-textlink-hide"
                        href="{% url 'admin:index' %}">Админ-панель</a>
                 {% endif %}

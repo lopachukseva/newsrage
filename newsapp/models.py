@@ -1,6 +1,7 @@
-from django.contrib.auth.models import User
 from django.db import models
 from django.urls import reverse
+
+from users.models import User
 
 
 class News(models.Model):
@@ -69,15 +70,3 @@ class Feedback(models.Model):
     class Meta:
         verbose_name = 'Обратная связь'
         verbose_name_plural = 'Обратная связь'
-
-
-class Image(models.Model):
-    title = models.CharField(max_length=255, verbose_name='Заголовок')
-    photo = models.ImageField(upload_to="photos/%Y/%m/%d/", verbose_name='Фотография')
-
-    class Meta:
-        verbose_name = 'Изображение'
-        verbose_name_plural = 'Изображения'
-
-    def __str__(self):
-        return self.title

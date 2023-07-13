@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'django_extensions',
 
     'newsapp.apps.NewsappConfig',
+    'images.apps.ImagesConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +122,12 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+# USERS
+AUTH_USER_MODEL = 'users.User'
+LOGIN_URL = "/users/login/"
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
