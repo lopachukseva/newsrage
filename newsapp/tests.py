@@ -2,7 +2,7 @@ from django.test import TestCase
 
 from users.models import User
 
-from .models import Comments, News
+from newsapp.models import Comments, News
 
 
 class NewsModelTest(TestCase):
@@ -12,48 +12,31 @@ class NewsModelTest(TestCase):
             content='post1_content',
             slug='post1_slug'
         )
-        post1.save()
 
         post2 = News(
             title='post2',
             content='post2_content',
             slug='post2_slug'
         )
+
         post2.save()
+        post1.save()
 
         all_posts = News.objects.all()
 
         self.assertEqual(len(all_posts), 2)
 
-        self.assertEqual(
-            all_posts[0].title,
-            post1.title
-        )
+        self.assertEqual(all_posts[0].title, post1.title)
 
-        self.assertEqual(
-            all_posts[0].content,
-            post1.content
-        )
+        self.assertEqual(all_posts[0].content, post1.content)
 
-        self.assertEqual(
-            all_posts[0].slug,
-            post1.slug
-        )
+        self.assertEqual(all_posts[0].slug, post1.slug)
 
-        self.assertEqual(
-            all_posts[1].title,
-            post2.title
-        )
+        self.assertEqual(all_posts[1].title, post2.title)
 
-        self.assertEqual(
-            all_posts[1].content,
-            post2.content
-        )
+        self.assertEqual(all_posts[1].content, post2.content)
 
-        self.assertEqual(
-            all_posts[1].slug,
-            post2.slug
-        )
+        self.assertEqual(all_posts[1].slug, post2.slug)
 
 
 class CommentsModelTest(TestCase):
@@ -77,36 +60,16 @@ class CommentsModelTest(TestCase):
 
         all_comments = Comments.objects.all()
 
-        self.assertEqual(
-            len(all_comments), 2
-        )
+        self.assertEqual(len(all_comments), 2)
 
-        self.assertEqual(
-            all_comments[0].user,
-            comment1.user
-        )
+        self.assertEqual(all_comments[0].user, comment1.user)
 
-        self.assertEqual(
-            all_comments[0].comment,
-            comment1.comment
-        )
+        self.assertEqual(all_comments[0].comment, comment1.comment)
 
-        self.assertEqual(
-            all_comments[0].news,
-            comment1.news
-        )
+        self.assertEqual(all_comments[0].news, comment1.news)
 
-        self.assertEqual(
-            all_comments[1].user,
-            comment2.user
-        )
+        self.assertEqual(all_comments[1].user, comment2.user)
 
-        self.assertEqual(
-            all_comments[1].comment,
-            comment2.comment
-        )
+        self.assertEqual(all_comments[1].comment, comment2.comment)
 
-        self.assertEqual(
-            all_comments[1].news,
-            comment2.news
-        )
+        self.assertEqual(all_comments[1].news, comment2.news)
