@@ -14,7 +14,7 @@ class LoginUser(TitleMixin, LoginView):
     success_url = reverse_lazy('index')
     title = "NEWSRAGE - Вход"
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
@@ -28,7 +28,7 @@ class RegisterUser(TitleMixin, CreateView):
     success_url = reverse_lazy('login_user')
     title = "NEWSRAGE - Регистрация"
 
-    def get_context_data(self, *, object_list=None, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
 
