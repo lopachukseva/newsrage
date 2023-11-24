@@ -13,7 +13,7 @@ class News(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name='Время последнего обновления')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
     category = models.ForeignKey('Category', on_delete=models.SET_NULL, null=True, verbose_name='Категория')
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL SLUG')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Слаг')
 
     def __str__(self):
         return self.title
@@ -29,8 +29,8 @@ class News(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=40, db_index=True)
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='URL SLUG')
+    name = models.CharField(max_length=40, db_index=True, verbose_name='Название категории')
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name='Слаг')
 
     def __str__(self):
         return self.name
