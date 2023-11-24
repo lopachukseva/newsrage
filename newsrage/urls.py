@@ -18,12 +18,12 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import include, path
 
-from newsapp.views import pageNotFound
+from news.views import pageNotFound
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('users/', include('users.urls')),
-    path('', include('newsapp.urls')),
+    path('', include('news.urls')),
 ]
 
 if settings.DEBUG:

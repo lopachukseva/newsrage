@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="{% static '/newsapp/css/style.css' %}">
-    <link rel="shortcut icon" href="{% static 'newsapp/images/ico_bgd.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" href="{% static 'images/ico_bgd.ico' %}" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
     <header class="header">
         <nav class="header-navigation">
             <ul class="header-navigation-list">
-                <li><a class="header-logo" href="{% url 'index' %}"><img src="{% static 'newsapp/images/logo.png' %}"
+                <li><a class="header-logo" href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}"
                                                                          alt="newsrage-logo"></a></li>
                 {% for category in categories %}
                 <li><a class="header-navigation-textlink header-navigation-textlink-hide"
@@ -42,9 +42,9 @@
                 {% if user.is_superuser %}
                 <li><a class="header-navigation-textlink header-navigation-textlink-hide"
                        href="{% url 'admin:index' %}">Админ-панель</a>
-                {% endif %}
+                    {% endif %}
                 <li><img class="header-navigation-textlink header-navigation-expand"
-                         src="{% static 'newsapp/images/arrow.png' %}">
+                         src="{% static 'images/arrow.png' %}">
                 </li>
             </ul>
         </nav>

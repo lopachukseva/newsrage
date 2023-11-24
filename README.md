@@ -63,6 +63,7 @@
 <h2> Для запуска: </h2>
 <ol>
   <li>Установка зависимостей: pip install -r requirements.txt </li>
+  <li>Создание env файла (см. ниже)</li>
   <li>Создание миграций: python manage.py makemigrations </li>
   <li>Применение миграций: python manage.py migrate </li>
   <li>Создание суперпользователя: python manage.py createsuperuser </li>
@@ -70,4 +71,16 @@
 </ol>
 
 
+
+<h2> Создание env файла </h2>
+<h3> env файл должен находиться в корне проекта и содержать в себе следующие значения: </h3>
+<ol>
+  <li>DEBUG - дебаг режим, True/False</li>
+  <li>SECRET_KEY - секретный ключ</li>
+  <li>DB_NAME - имя БД</li>
+  <li>DB_USER - имя пользователя БД</li>
+  <li>DB_PASSWORD - пароль пользователя БД</li>
+  <li>DB_HOST - хост БД</li>
+  <li>DB_PORT - порт БД</li>
+</ol>
 

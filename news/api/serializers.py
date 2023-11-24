@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from newsapp.models import Category, News
+from news.models import Category, News
 
 
 class NewsSerializer(serializers.ModelSerializer):

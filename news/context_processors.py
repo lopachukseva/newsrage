@@ -1,4 +1,4 @@
-from newsapp.models import Category
+from news.models import Category
 
 
 def categories(request):

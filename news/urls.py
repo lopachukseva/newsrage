@@ -1,8 +1,8 @@
 from django.urls import path
 
-from newsapp.api.views import (CategoryListAPIView, NewsCategoryAPIView,
+from news.api.views import (CategoryListAPIView, NewsCategoryAPIView,
                                NewsListAPIView, NewsRetrieveAPIView)
-from newsapp.views import category, contacts, feedback, index, post
+from news.views import category, contacts, feedback, index, post
 
 urlpatterns = [
     path('', index, name='index'),

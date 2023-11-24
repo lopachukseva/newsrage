@@ -1,8 +1,8 @@
 from django.http import Http404
 from django.shortcuts import redirect, render
 
-from newsapp.forms import CommentsForm, FeedbackForm
-from newsapp.models import Category, Comments, News
+from news.forms import CommentsForm, FeedbackForm
+from news.models import Category, Comments, News
 
 
 def index(request):

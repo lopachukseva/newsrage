@@ -1,6 +1,6 @@
 from django.test import TestCase
 
-from newsapp.models import Comments, News
+from news.models import Comments, News
 from users.models import User
 
 

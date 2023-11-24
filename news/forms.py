@@ -1,6 +1,6 @@
 from django import forms
 
-from newsapp.models import Comments, Feedback
+from news.models import Comments, Feedback
 
 
 class FeedbackForm(forms.ModelForm):
